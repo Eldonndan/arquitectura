@@ -1,0 +1,74 @@
+<header>
+  <div class="logo">
+    <img src="assets/logo.png" alt="Logo">
+  </div>
+  <nav>
+    <ul class="menu">
+      <li><a routerLink="/usuario">Inicio</a></li>
+      <li><a routerLink="/nosotros">Nosotros</a></li>
+      <li><a routerLink="/contacto">Contacto</a></li>
+              <li class="has-dropdown">
+                  <a id="welcome-link">Bienvenido: (Usuario)</a>
+                  <ul class="dropdown-menu">
+                      <li><a href="agendar">Agendar hora</a></li>
+                      <li><a href="citas">Mis citas</a></li>
+                      <li><a href="/home">Cerrar sesión</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </nav>
+  </header>
+
+  <body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1 class="login-title">Agendar Hora</h1>
+            <form>
+                <div class="form-group">
+                  <label for="dia">Seleccione día:</label>
+                  <input type="date" id="dia" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Seleccione la hora:</label>
+                    <select id="hora" class="form-control">
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:30">16:30</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="servicio">Seleccione el servicio/consulta:</label>
+                    <select id="servicio" class="form-control">
+                        <option value="servicio1">Consulta medica</option>
+                        <option value="servicio2">Examenes</option>
+                        <option value="servicio3">Operaciones</option>
+                        <option value="servicio4">Otra</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comentario">Comentario y/o especificación:</label>
+                    <textarea id="comentario" class="form-control" rows="4"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='/usuario'">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <script>
+      // Obtener la fecha actual
+      const fechaActual = new Date();
+
+      // Calcular la fecha de mañana
+      fechaActual.setDate(fechaActual.getDate() + 1);
+
+      // Formatear la fecha de mañana en el formato "YYYY-MM-DD"
+      const fechaManana = fechaActual.toISOString().split("T")[0];
+
+      // Establecer el valor mínimo en el campo de fecha
+      document.getElementById("dia").min = fechaManana;
+  </script>
+</body>
+

@@ -1,0 +1,83 @@
+<header>
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo">
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a routerLink="/usuario">Inicio</a></li>
+        <li><a routerLink="/nosotros">Nosotros</a></li>
+        <li><a routerLink="/contacto">Contacto</a></li>
+                <li class="has-dropdown">
+                    <a id="welcome-link">Bienvenido: (Usuario)</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="agendar">Agendar hora</a></li>
+                        <li><a href="citas">Mis citas</a></li>
+                        <li><a href="/home">Cerrar sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <body>
+        <div class="citas-container">
+            <h1>Mis Citas</h1>
+            <ul class="citas-list">
+                <!-- Ejemplo de una cita -->
+                <li class="cita">
+                    <div class="cita-content">
+                        <div class="cita-select">
+                            <input type="checkbox" class="checkbox">
+                        </div>
+                        <div class="cita-info">
+                            <span>Fecha: 2023-11-10 - Hora: 10:00 AM</span>
+                            <span>Servicio: Consulta médica</span>
+                        </div>
+                        <div class="cita-actions">
+                            <button class="btn btn-edit">Modificar</button>
+                            <button class="btn btn-delete">Anular</button>
+                        </div>
+                    </div>
+                </li>
+                <!-- Repite este bloque para cada cita -->
+            </ul>
+        </div>
+    
+    
+        <script>document.addEventListener("DOMContentLoaded", function() {
+            // Datos de ejemplo de citas (pueden ser cargados desde un JSON o una fuente de datos externa)
+            const citas = [
+                { id: 1, fecha: "2023-11-10", hora: "10:00 AM", servicio: "Consulta médica" },
+                { id: 2, fecha: "2023-11-15", hora: "02:30 PM", servicio: "Exámenes" },
+                // Agrega más citas según tus necesidades
+            ];
+        
+            const citasList = document.querySelector(".citas-list");
+        
+            citas.forEach(cita => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `
+                    <span>${cita.fecha} - ${cita.hora}</span>
+                    <span>Servicio: ${cita.servicio}</span>
+                    <button class="btn btn-edit" data-id="${cita.id}">Editar</button>
+                    <button class="btn btn-delete" data-id="${cita.id}">Eliminar</button>
+                `;
+                citasList.appendChild(listItem);
+            });
+        
+            // Agregar lógica de selección y eliminación de citas
+            citasList.addEventListener("click", function(event) {
+                const target = event.target;
+                if (target.classList.contains("btn-edit")) {
+                    // Aquí puedes redirigir a "Agendar hora" con los datos de la cita seleccionada
+                } else if (target.classList.contains("btn-delete")) {
+                    // Aquí puedes implementar la lógica para eliminar la cita
+                    const citaId = target.getAttribute("data-id");
+                    // Elimina la cita con el ID correspondiente
+                    // Luego, puedes actualizar la lista de citas si es necesario
+                }
+            });
+        });
+        </script>
+    </body>
+        

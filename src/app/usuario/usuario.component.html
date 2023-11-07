@@ -1,0 +1,33 @@
+<header>
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo">
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a routerLink="/usuario">Inicio</a></li>
+        <li><a routerLink="/nosotros">Nosotros</a></li>
+        <li><a routerLink="/contacto">Contacto</a></li>
+                <li class="has-dropdown">
+                    <a id="welcome-link">Bienvenido: (Usuario)</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="agendar">Agendar hora</a></li>
+                        <li><a href="citas">Mis citas</a></li>
+                        <li><a href="/home">Cerrar sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <router-outlet></router-outlet>
+      </main> 
+        <div class="image-container">
+          <img src="assets/medico.png">
+          <div class="text-container">
+            <h1>Medicina de Excelencia</h1>
+            <p>Contamos con un equipo humano y material de primer nivel para diagnóstico clínico</p>
+          </div>
+        </div>
+        <router-outlet></router-outlet>
+      
